@@ -23,7 +23,7 @@ public class WebServiceController {
 	@RequestMapping("/validate")
 	public @ResponseBody String Validate(
 			@RequestParam("ccn") String creditCardNumber,
-			@RequestParam("amount") int amount) {
+			@RequestParam("amount") double amount) {
 
 		CreditCard creditCard = null;
 		List<CreditCard> cards = service.checkCard(creditCardNumber);
@@ -37,7 +37,8 @@ public class WebServiceController {
 
 				return "y";
 			}
+			else {return "n";}
 		}
-		return "n";
+		return "N";
 	}
 }

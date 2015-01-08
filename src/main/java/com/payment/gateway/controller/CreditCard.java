@@ -13,7 +13,7 @@ public class CreditCard {
 	private int Id;
 
 	private String creditCardNumber;
-	private int amount;
+	private double amount;
 
 	public String getCreditCardNumber() {
 		return creditCardNumber;
@@ -23,11 +23,11 @@ public class CreditCard {
 		this.creditCardNumber = creditCardNumber;
 	}
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
