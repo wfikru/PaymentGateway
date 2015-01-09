@@ -12,13 +12,12 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
 	<context:component-scan base-package="com.payment.gateway" />
-	
-	 
+
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/paymentgateway" />
+		<property name="url" value="jdbc:mysql://localhost:3306/paymentgateway" />
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
@@ -44,5 +43,6 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
- 
+	
+	<bean id="encryptor" class="com.payment.gateway.service.encryptionService"></bean>
 </beans>
