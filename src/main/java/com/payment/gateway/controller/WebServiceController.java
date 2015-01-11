@@ -24,7 +24,7 @@ public class WebServiceController {
 		this.service = service;
 	}
 
-	@RequestMapping("/validate")
+	@RequestMapping("/team6_paymentgateway")
 	public @ResponseBody String Validate(
 			@RequestParam("ccn") String encCreditCardNumber,
 			@RequestParam("amount") double amount) {
@@ -32,6 +32,7 @@ public class WebServiceController {
 		String creditCardNumber = null;
 		try {
 			creditCardNumber = encryptor.decrypt(encCreditCardNumber);
+			System.out.print(creditCardNumber+" #######################");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,7 +45,7 @@ public class WebServiceController {
 			creditCard = cards.get(0);
 
 			if (creditCard.getAmount() > amount) {
-				creditCard.setAmount(creditCard.getAmount() - amount);
+				creditCard.setAmount((creditCard.getAmount() - amount));
 				service.updateCreditCard(creditCard);
 
 				return "y";
